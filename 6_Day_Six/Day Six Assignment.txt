@@ -1,0 +1,33 @@
+Day 6
+
+1. Create new Student class in pkg "com.app.core" 
+It has --prn(String),name,email,marks,course
+Provide constructor & toString
+Student's identity is : prn no
+(Meaning 2 students are same iff their prn nos are same)
+Override equals method correctly.
+
+1.1 Create custom exception class
+StudentHandlingException , in cust_excs pkg , as a checked exception.
+
+1.2 Create a Tester class with main.
+Create Scanner , within  try-with-resources.
+
+Create hard-coded sample data with Student[] , with 3 students, with prns 
+dac-001,dac-002,dac-003 (Don't create it with dynamic array!!!)
+
+Prompt user , to accept new student's  details.
+If student with same prn already exists , throw custom exception(showing err mesg : dup prn!!!!) , otherwise--add the details in array & give success message.
+Display array contents , using for-each.
+
+2. After completing 1st part , add more validation rules
+(In utils packge, add a class ValidationRules & add static methods)
+2.1 student name must be min 4 chars & max 10 chars long
+(validateName method)
+
+2.2 student email must be min 4 chars & max 10 chars long & must contain @ char. (Hint : use contains method of String class)
+(validateEmail method)
+
+2.3 valid course names are -- dac/dmc/dbdac/dai
+Do proper exception handling & complete the assignment.
+(Hint : In tester , u must call all these validation rules , before admitting a new student)
