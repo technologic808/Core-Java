@@ -1,0 +1,39 @@
+Day 5
+1. Apply abstraction to emp based organization.
+Test it.
+Add new options 
+6. Display employee specific details
+I/P emp id 
+O/P If its manager --display its performance bonus , 
+if its worker then display its hourly rate.
+
+
+2. Apply interfaces.
+
+1.Create  Computable interfaces.
+Declare functionality to calculate area & perimeter of a bounded shape.
+Add PI as a constant.
+
+Develop follwoing classes
+
+2. Point --- x,y , constructor , toString
+
+3. Circle --x,y,radius,constructor  , toString, calc area & perimeter +
+public void drawArc()
+{ sop("drawing arc"); }
+
+4. Rectangle --x,y,width,height,constructor  , toString, calc area & perimeter +
+public void diagonals()
+{
+ sop("diagonals of rectangle are equal in lenth");
+}
+
+5. Tester --Test using dyn method dispatch.
+5.1 Prompt user for how many bounded shapes. Create suitable array.
+Options
+1. Add Circle
+2. Add Rectangle
+3. Display area & perimeter of all shapes, using for-each loop.
+In the same for-each , invoke drawArc for a circle or diagonals for a rectangle type.
+
+6. Go through readmes on --inheritance,interfaces & javadocs for ClassCastException

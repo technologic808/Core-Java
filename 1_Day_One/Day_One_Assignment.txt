@@ -1,0 +1,40 @@
+1. 
+Accept any numbers as command line arguments from user. 
+If user supplies less than 2 arguments supply error message & terminate. 
+If  correct, compute average & display the same.
+(args.length = to find array size 
+Double.parseDouble(s) for parsing double values)
+
+2. 
+Create a class Calculator with 2 private double data members 
+firstNumber & secondNumber.
+Supply getters & setters.
+Add 4 instance methods add,subtract,multiply & divide , 
+without parameters , to return result of calculation.
+Divide method should return 0 in case of 0 denominator.
+Create a TestCalculator class with scanner.
+Accept 2 numbers from user & set them in Calculator.
+Menu 
+1: Add
+2 : Subtract 
+3 : Multiply
+4 : Divide
+5 :Exit.
+
+
+3. 
+Display food menu to user. 
+User will select items from menu along with the quantity. 
+Hard code food prices. (eg 1. Dosa 2. Samosa .......10 . Generate Bill ) 
+When user enters 'Generate Bill' option, display total bill & exit.
+
+4. 
+Write a class Converter.java
+Add static methods for conversion & returning result  to caller.
+5.1 Convert pounds to kilogram(1 pound=0.4536 Kg)
+eg : I/P 100
+O/p 45.36Kg
+5.2 Convert the temperature in Celsius to Fahrenheit (F = C× 9/5 + 32)
+5.3 Convert seconds into a formatted string , to display hour,min,seconds
+eg : I/P 67890
+O/P  18h51m30s

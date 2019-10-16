@@ -1,0 +1,55 @@
+Day 4
+
+1. Apply inheritance & polymorphism  to organization scenario.
+
+Emp based org structure --- Emp , Mgr , Worker
+
+Emp state--- id(int --system generated: auto increment), 
+name, email,deptId , basic(double)
+Use static init block --to init id counter to 100.
+
+Behaviour --- get emp details -- via toString
+
+Mgr state  ---id,name,email,basic,dept,perfBonus
+Behaviour ----1. get mgr details(toString)
+2. compute net salary (formula: basic+perfBonus)
+eg : public double computeNetSalary(){...}
+3. get performance bonus.
+public double getPerfBonus() {...}
+
+
+Worker state  ---id,name,email,basic,dept, hoursWorked,hourlyRate
+Behaviour--- 
+1. get worker details(toString)
+2.  compute net salary (formula:  = basic+(hrs*rate)
+3. get hrlyRate of the worker  
+
+Organize classes in inheritance  hierarchy.
+
+Write TestOrg in "tester" package.
+Create suitable array to store organization details.
+Provide following options
+1. Hire Manager
+2. Hire Worker  
+3. Display information of all employees , 
+	net salary using single for-each loop.
+
+4. Display employee specific details.
+I/P emp id
+O/P --  Display emp details or invalid emp id (error message)
+
+5. Salary Increment
+I/P Emp id & basic salary increment
+O/P --Updated salary or invalid emp id (error message)
+
+10: Exit
+
+
+
+
+
+
+
+
+
+
