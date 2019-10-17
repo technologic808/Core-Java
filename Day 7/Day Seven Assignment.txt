@@ -1,0 +1,17 @@
+Day 7 
+Complete day 6 assignment if pending.
+Must have following classes --Student , StudentHandlingException ,ValidationRules,Tester .
+
+Modifications 
+Add in Student class , DOB 
+private Date dob;
+Modify constructor,toString suitably.
+Add validation rule -- dob can't be before 1st Jan 1985.
+
+Replace in Student class --course from String to enum.
+Add suitable conversion/validation method in ValidationRules class.
+
+In Tester , accept 1 student details , validate them . 
+In case of success -- create the student instance & display its details.
+In case of errors --display error message via catch block.
+
