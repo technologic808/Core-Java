@@ -1,0 +1,3 @@
+Day 8
+Create New Tester Class
+Create Datastructure to store student objects
