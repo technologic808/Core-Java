@@ -1,3 +1,10 @@
 Day 8
-Create New Tester Class
-Create Datastructure to store student objects
+
+Copy project day7_lab into day8.2_lab
+
+Write a new Tester in "lists" package for the following
+1. Create suitable D.S to store student info.
+2. Supply options
+2.1 Register new student, with validations
+2.2 Display all students' info (via for-each)
+20 : Exit
