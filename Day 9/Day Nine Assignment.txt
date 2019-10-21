@@ -1,0 +1,53 @@
+Day 9
+
+Create day9_lab eclipse project.
+
+Copy Student,StudentHandlingException & Validation rules 
+packaged classes under <src> in eclipse.
+
+Write a Tester for the following 
+
+1. 
+Add populateStudents method in CollectionUtils class , 
+to return populated AL<Student> ---test data.
+
+2. 
+Create a TestStudents class , as per template (already discussed)
+
+Options
+
+1. 
+New Student admission
+
+2. 
+Accept course name from user
+Display names of all students for a specific course.
+
+3. 
+Update student marks
+I/P --prn & new marks
+O/P success message or err message via custom exception
+
+4. 
+Display prn & names  of all students born after specific date 
+& enrolled in a specific course.
+I/P date & course name
+O/P prn & names.
+
+5. 
+Cancel Admission
+I/P --prn 
+O/P success message or err message via custom exception
+
+6. 
+Sort students as per prns , using natural ordering & display the same.
+
+7. 
+Sort students as per dob & marks  , using custom ordering & display the same.
+
+8. 
+Display name of a topper for a specific course(assume 1 topper only)
+I/P course name.
+O/P name of a topper.
+Hint(Can directly use max() of Collections)
+
