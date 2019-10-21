@@ -1,10 +1,6 @@
 package lists;
 
-import static utils.ValidationRules.validateCourse;
-import static utils.ValidationRules.validateDate;
-import static utils.ValidationRules.validateEmail;
-import static utils.ValidationRules.validateName;
-
+import static utils.ValidationRules.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -59,17 +55,8 @@ public class StudentTester {
 						System.out.println("Enter Marks: ");
 						String marks = sc.nextLine();
 
-						tempStudent = new Student(prn, validateName(name), validateEmail(email), marks,
-								validateDate(date), validateCourse(courseString));
-
-						//
-						// for (Student st : students) {
-						// if (st == null)
-						// continue;
-						// if (st.equals(tempStudent)) {
-						// throw new StudentHandlingException("Duplicate Student");
-						// }
-						// }
+						tempStudent = new Student(validatePRN(students, prn), validateName(name), validateEmail(email),
+								marks, validateDate(date), validateCourse(courseString));
 
 						students.add(tempStudent);
 

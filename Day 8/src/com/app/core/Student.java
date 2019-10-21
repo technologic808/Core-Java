@@ -7,10 +7,12 @@ public class Student {
 	private Date dob;
 	private Course course;
 
+
+
 	@Override
 	public String toString() {
 		return "Student [prn=" + prn + ", name=" + name + ", email=" + email + ", marks=" + marks + ", dob=" + dob
-				+ "]";
+				+ ", course=" + course + "]";
 	}
 
 	public Student(String prn, String name, String email, String marks, Date dob, Course course) {
@@ -24,7 +26,6 @@ public class Student {
 	}
 
 	public Student(String searchPRN) {
-		// this.prn = searchPRN;
 		this(searchPRN, null, null, null, null, null);
 	}
 

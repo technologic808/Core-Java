@@ -2,9 +2,11 @@ package utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.app.core.Course;
+import com.app.core.Student;
 
 import cust_excs.StudentHandlingException;
 
@@ -23,12 +25,6 @@ public class ValidationRules {
 			return email;
 	}
 
-//	public static void validateCourse(String course) throws StudentHandlingException {
-//		
-//		if (!course.equals("dac") && !course.equals("dmc") && !course.equals("dbda") && !course.equals("dai"))
-//			throw new StudentHandlingException("Course is not valid");
-//	}
-
 	public static Course validateCourse(String course) throws StudentHandlingException {
 		try {
 			return Course.valueOf(course.toUpperCase());
@@ -37,15 +33,24 @@ public class ValidationRules {
 		}
 	}
 
-	public static Date validateDate(Date date) throws StudentHandlingException, ParseException {
+	public static Date validateDate(Date date) throws StudentHandlingException {
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+			Date threshold = sdf.parse("01.01.1985");
+			if (threshold.compareTo(date) > 0)
+				throw new StudentHandlingException("DOB need to greater than 01.01.1985");
+			else
+				return date;
+		} catch (ParseException e) {
+			throw new StudentHandlingException("Not a valid date");
+		}
 
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-		Date threshold = sdf.parse("01.01.1985");
-		if (threshold.compareTo(date) > 0) 
-			throw new StudentHandlingException("DOB need to greater than 01.01.1985");
-		else
-			return date;
-		
+	}
+
+	public static String validatePRN(ArrayList<Student> students, String prn) throws StudentHandlingException {
+		if (students.contains(new Student(prn)))
+			throw new StudentHandlingException("Duplicate Student");
+		return prn;
 	}
 
 }
