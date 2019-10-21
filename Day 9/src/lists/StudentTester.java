@@ -26,6 +26,7 @@ public class StudentTester {
 				System.out.println("2. Display all Students");
 				System.out.println("3. Search PRN in ArrayList");
 				System.out.println("4. Populate ArrayList");
+				System.out.println("5. Show all students for a course");
 				System.out.println("\n10. EXIT");
 				System.out.println("\nPlease select an option ...\n");
 
@@ -66,17 +67,24 @@ public class StudentTester {
 						}
 						break;
 					case 3:
-						System.out.println("\nEnter PRN to search\n");
-						String searchPRN = sc.next();
-						Student temp = new Student(searchPRN);
-						Integer in = students.indexOf(temp);
-						if (in != -1)
-							System.out.println(students.get(in));
-						else
-							throw new StudentHandlingException("\nError: Student not found!\n");
+						System.out.println("Enter the PRN: ");
+						String userPRN = sc.next();
+						Integer index = students.indexOf(new Student(userPRN));
+						if (index == -1)
+							throw new StudentHandlingException("\nError: Student not found\n");
+						System.out.println(students.get(index));
 						break;
 					case 4:
 						students = populateStudents(students);
+						break;
+					case 5:
+						// take course as input and find object in ArrayList
+						System.out.println("Enter Course Name: ");
+						Course course = validateCourse(sc.next());
+						for (Student s : students) {
+							if (s.getCourse().equals(course.toString()))
+								System.out.println(s);
+						}
 						break;
 					case 10:
 						sc.close();

@@ -33,4 +33,9 @@ public class Student {
 			return prn.equalsIgnoreCase(((Student) obj).prn);
 		return false;
 	}
+
+	public String getCourse() {
+		return course.toString();
+	}
+
 }
