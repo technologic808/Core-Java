@@ -13,8 +13,6 @@ import cust_excs.StudentHandlingException;
 public class StudentTester {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		ArrayList<Student> students = new ArrayList<>();
 
 		Student tempStudent = null;
@@ -87,7 +85,6 @@ public class StudentTester {
 						break;
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
 					System.out.println(e.getMessage());
 				}
 

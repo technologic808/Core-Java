@@ -7,11 +7,9 @@ public class Student {
 	private Date dob;
 	private Course course;
 
-
-
 	@Override
 	public String toString() {
-		return "Student [prn=" + prn + ", name=" + name + ", email=" + email + ", marks=" + marks + ", dob=" + dob
+		return "\nStudent [prn=" + prn + ", name=" + name + ", email=" + email + ", marks=" + marks + ", dob=" + dob
 				+ ", course=" + course + "]";
 	}
 
