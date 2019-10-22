@@ -50,7 +50,13 @@ public class ValidationRules {
 
 	public static String validatePRN(ArrayList<Student> students, String prn) throws StudentHandlingException {
 		if (students.contains(new Student(prn)))
-			throw new StudentHandlingException("\nError: Duplicate Student\n");
+			throw new StudentHandlingException("\nError: Please check PRN\n");
+		return prn;
+	}
+
+	public static String reverseValidatePRN(ArrayList<Student> students, String prn) throws StudentHandlingException {
+		if (!students.contains(new Student(prn)))
+			throw new StudentHandlingException("\nError: Please check PRN\n");
 		return prn;
 	}
 

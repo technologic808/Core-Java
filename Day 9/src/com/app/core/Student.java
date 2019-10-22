@@ -38,4 +38,8 @@ public class Student {
 		return course.toString();
 	}
 
+	public void setMarks(String marks) {
+		this.marks = marks;
+	}
+
 }

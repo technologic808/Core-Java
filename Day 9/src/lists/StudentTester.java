@@ -7,34 +7,39 @@ import java.util.Scanner;
 
 import com.app.core.*;
 
-import cust_excs.StudentHandlingException;
-
 public class StudentTester {
 
 	public static void main(String[] args) {
 		ArrayList<Student> students = new ArrayList<>();
 
 		Student tempStudent = null;
+		Integer option = 0;
+		String userPRN;
+		Boolean loop = true;
+
 		try (Scanner sc = new Scanner(System.in);) {
-			boolean loop = true;
-			int option = 0;
 
 			while (loop) {
 
 				System.out.println("____________MENU__________\n");
-				System.out.println("1. Register new Student");
-				System.out.println("2. Display all Students");
-				System.out.println("3. Search PRN in ArrayList");
-				System.out.println("4. Populate ArrayList");
-				System.out.println("5. Show all students for a course");
-				System.out.println("\n10. EXIT");
+				System.out.println("1. Add Student to List");
+				System.out.println("2. Display all Students in List");
+				System.out.println("3. Search Student in List by PRN");
+				System.out.println("4. Populate List for testing purposes");
+				System.out.println("5. Filter List by Course");
+				System.out.println("6. Update student marks in List by PRN");
+				System.out.println("7. Filter List by Course and Date of Birth");
+				System.out.println("8. Delete Student by PRN from List");
+				System.out.println("9. Sort n display students in List by PRN (Natural Ordering)");
+				System.out.println("10. Sort n display students in List by DOB and Marks (Custom Ordering)");
+				System.out.println("\n0. EXIT");
 				System.out.println("\nPlease select an option ...\n");
 
 				option = sc.nextInt();
 				try {
 					switch (option) {
 					case 1:
-
+						// Register new Student
 						sc.nextLine();
 						System.out.println("Enter Student PRN: ");
 						String prn = sc.nextLine();
@@ -62,23 +67,21 @@ public class StudentTester {
 						break;
 
 					case 2:
+						// Display all students
 						for (Student s : students) {
 							System.out.println(s);
 						}
 						break;
 					case 3:
-						System.out.println("Enter the PRN: ");
-						String userPRN = sc.next();
-						Integer index = students.indexOf(new Student(userPRN));
-						if (index == -1)
-							throw new StudentHandlingException("\nError: Student not found\n");
-						System.out.println(students.get(index));
+						// Search by PRN
+						System.out.println("Enter PRN: ");
+						System.out.println(
+								students.get(students.indexOf(new Student(reverseValidatePRN(students, sc.next())))));
 						break;
 					case 4:
 						students = populateStudents(students);
 						break;
 					case 5:
-						// take course as input and find object in ArrayList
 						System.out.println("Enter Course Name: ");
 						Course course = validateCourse(sc.next());
 						for (Student s : students) {
@@ -86,7 +89,22 @@ public class StudentTester {
 								System.out.println(s);
 						}
 						break;
+					case 6:
+						System.out.println("Enter PRN: ");
+						userPRN = reverseValidatePRN(students, sc.next());
+						System.out.println("Enter new marks: ");
+						students.get(students.indexOf(new Student(userPRN))).setMarks(sc.next());
+						System.out.println("\nMarks updated successfully for PRN: " + userPRN + "\n");
+						break;
+					case 7:
+						break;
+					case 8:
+						break;
+					case 9:
+						break;
 					case 10:
+						break;
+					case 0:
 						sc.close();
 						loop = false;
 						break;
