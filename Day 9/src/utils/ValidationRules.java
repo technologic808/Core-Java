@@ -45,18 +45,23 @@ public class ValidationRules {
 		} catch (ParseException e) {
 			throw new StudentHandlingException("\nError: Not a valid date\n");
 		}
+	}
+
+	public static boolean validateDateOfBirth(String cutOffDateString, Date studentDob)
+			throws StudentHandlingException {
+		return validateDate(cutOffDateString).before(studentDob);
 
 	}
 
 	public static String validatePRN(ArrayList<Student> students, String prn) throws StudentHandlingException {
 		if (students.contains(new Student(prn)))
-			throw new StudentHandlingException("\nError: Please check PRN\n");
+			throw new StudentHandlingException("\nError: PRN already exists\n");
 		return prn;
 	}
 
 	public static String reverseValidatePRN(ArrayList<Student> students, String prn) throws StudentHandlingException {
 		if (!students.contains(new Student(prn)))
-			throw new StudentHandlingException("\nError: Please check PRN\n");
+			throw new StudentHandlingException("\nError: PRN does not exist\n");
 		return prn;
 	}
 

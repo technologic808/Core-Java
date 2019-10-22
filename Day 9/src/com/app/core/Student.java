@@ -2,7 +2,7 @@ package com.app.core;
 
 import java.util.Date;
 
-public class Student {
+public class Student implements Comparable<Student> {
 	private String prn, name, email, marks;
 	private Date dob;
 	private Course course;
@@ -28,18 +28,52 @@ public class Student {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof Student)
-			return prn.equalsIgnoreCase(((Student) obj).prn);
-		return false;
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((prn == null) ? 0 : prn.hashCode());
+		return result;
 	}
 
-	public String getCourse() {
-		return course.toString();
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (prn == null) {
+			if (other.prn != null)
+				return false;
+		} else if (!prn.equals(other.prn))
+			return false;
+		return true;
+	}
+
+	public Course getCourse() {
+		return course;
 	}
 
 	public void setMarks(String marks) {
 		this.marks = marks;
 	}
 
+	public String getMarks() {
+		return marks;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public String getPRN() {
+		return prn;
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		return this.prn.compareTo(((Student) o).getPRN());
+	}
 }
