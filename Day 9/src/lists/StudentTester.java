@@ -21,6 +21,13 @@ public class StudentTester {
 
 	};
 
+	static final Comparator<Student> MARKS_COMPARATOR = new Comparator<Student>() {
+		@Override
+		public int compare(Student o1, Student o2) {
+			return o1.getMarks().compareTo(o2.getMarks());
+		}
+	};
+
 	public static void main(String[] args) {
 		ArrayList<Student> students = new ArrayList<>();
 
@@ -132,6 +139,10 @@ public class StudentTester {
 						for (Student s : students) {
 							System.out.println(s);
 						}
+						break;
+					case 11:
+						// Display name of a topper for a specific course (assume one topper)
+						System.out.println(Collections.max(students, MARKS_COMPARATOR).getName());
 						break;
 					case 0:
 						sc.close();

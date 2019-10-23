@@ -76,4 +76,8 @@ public class Student implements Comparable<Student> {
 	public int compareTo(Student o) {
 		return this.prn.compareTo(((Student) o).getPRN());
 	}
+
+	public String getName() {
+		return name;
+	}
 }

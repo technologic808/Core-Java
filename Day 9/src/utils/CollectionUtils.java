@@ -34,6 +34,7 @@ public class CollectionUtils {
                 System.out.println("8. Delete Student by PRN from List");
                 System.out.println("9. Sort n display students in List by PRN (Natural Ordering)");
                 System.out.println("10. Sort n display students in List by DOB and Marks (Custom Ordering)");
+                System.out.println("11. Display topper student name");
                 System.out.println("\n0. EXIT");
                 System.out.println("\nPlease select an option ...\n");
         }
