@@ -12,36 +12,69 @@
 
 package com.app;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Customer
  */
 public class Customer {
 
-    String email, password, regDateString;
+    String email, password;
     Double regAmount;
-    Date regDate; // Date regDate = new SimpleDateFormat("dd.MM.yyyy").parse(regDateString);
+    LocalDate regDate;
     Address homeAddress, officeAddress;
 
-    public Customer(String email, String password, String regDateString, Double regAmount) {
+    public Customer(String email, String password, LocalDate regDate, Double regAmount) {
         this.email = email;
         this.password = password;
-        this.regDateString = regDateString;
+        this.regDate = regDate;
         this.regAmount = regAmount;
     }
 
-    public boolean linkAddress(String city, String state, String country, String phoneNo, String type) {
+    public Customer(String email2, String password2) {
+        email = email2;
+        password = password2;
+    }
 
-        if (type == "Home") {
+    public void linkAddress(String city, String state, String country, String phoneNo, String type) throws Exception {
+
+        if (type == "Home")
             homeAddress = new Address(city, state, country, phoneNo, type);
-            return true;
-        }
-        if (type == "Office") {
+        else if (type == "Office")
             officeAddress = new Address(city, state, country, phoneNo, type);
+        else
+            throw new Exception("Error: Not a valid type of address");
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((email == null) ? 0 : email.hashCode());
+        result = prime * result + ((password == null) ? 0 : password.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
             return true;
-        }
-        return false;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Customer other = (Customer) obj;
+        if (email == null) {
+            if (other.email != null)
+                return false;
+        } else if (!email.equals(other.email))
+            return false;
+        if (password == null) {
+            if (other.password != null)
+                return false;
+        } else if (!password.equals(other.password))
+            return false;
+        return true;
     }
 
 }
