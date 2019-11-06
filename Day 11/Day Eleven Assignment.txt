@@ -51,11 +51,8 @@ Update Address(Try last!)
 1.3.7. 
 Sort customers as per email
 
-1.3.8. 
+1.3.8.
 Sort customers as per reg date.
-
-
-
 
 
 

@@ -72,11 +72,6 @@ public class Tester {
                     System.out.println("Enter password: ");
                     password = sc.next();
 
-                    if (customerList.remove(new Customer(email, password)))
-                        System.out.println("Customer unsubscribed successfully!");
-                    else
-                        System.out.println("Error: Customer does not exist!");
-
                     break;
                 case 5:
                     // Display all customers by type
@@ -88,6 +83,17 @@ public class Tester {
                     }
                 case 6:
                     // Update Address
+
+                    break;
+
+                case 7:
+                    // Sort Customers by Email using Natural Ordering
+
+                    break;
+
+                case 8:
+                    // Sort Customers by Reg Date using Custom Ordering
+
                     break;
 
                 case 10:

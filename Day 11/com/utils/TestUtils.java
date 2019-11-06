@@ -28,6 +28,8 @@ public class TestUtils {
         System.out.println("4. Unsubscribe Customer");
         System.out.println("5. Display all customers by type");
         System.out.println("6. Update Address");
+        System.out.println("7. Sort Customers by Email: "); // Natural Ordering
+        System.out.println("8. Sort Customers by Reg Date: "); // Custom Ordering
         System.out.println("10. Exit");
     }
 }
