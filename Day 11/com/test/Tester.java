@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.app.CustType;
 import com.app.Customer;
 import static com.utils.TestUtils.*;
 import static java.time.LocalDate.*;
@@ -22,10 +23,12 @@ public class Tester {
         String email, password;
         LocalDate regDate;
         Double regAmount;
+        String custType;
 
         try (Scanner sc = new Scanner(System.in)) {
             while (loop) {
                 menu(); // Displays menu in console
+                option = sc.nextInt();
                 switch (option) {
                 case 1:
                     // Register new Customer
@@ -37,7 +40,10 @@ public class Tester {
                     regDate = parse(sc.next());
                     System.out.println("Enter amount: ");
                     regAmount = sc.nextDouble();
-                    customerList.add(new Customer(email, password, regDate, regAmount));
+                    System.out.println("Enter customer type(SILVER/GOLD/PLATINUM): ");
+                    custType = sc.next();
+
+                    customerList.add(new Customer(email, password, regDate, regAmount, CustType.valueOf(custType)));
                     break;
 
                 case 2:
@@ -72,8 +78,21 @@ public class Tester {
                         System.out.println("Error: Customer does not exist!");
 
                     break;
+                case 5:
+                    // Display all customers by type
+                    System.out.println("Enter customer type(SILVER/GOLD/PLATINUM): ");
+                    custType = sc.next();
+                    for (Customer c : customerList) {
+                        if (c.getType().toString().equals(custType))
+                            System.out.println(c);
+                    }
+                case 6:
+                    // Update Address
+                    break;
+
                 case 10:
                     System.out.println("Thanks for using this application!");
+                    loop = false;
                     break;
 
                 default:

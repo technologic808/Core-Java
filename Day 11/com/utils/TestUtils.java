@@ -2,6 +2,7 @@ package com.utils;
 
 import java.util.List;
 
+import com.app.CustType;
 import com.app.Customer;
 import static java.time.LocalDate.*;
 
@@ -11,10 +12,10 @@ import static java.time.LocalDate.*;
 public class TestUtils {
 
     public static List<Customer> populateList(List<Customer> list) {
-        list.add(new Customer("jim@gmail.com", "Hunter1", parse("2019-01-01"), 100d));
-        list.add(new Customer("pam@gmail.com", "Hunter2", parse("2019-02-01"), 200d));
-        list.add(new Customer("micheal@gmail.com", "Hunter3", parse("2019-03-01"), 300d));
-        list.add(new Customer("angela@gmail.com", "Hunter4", parse("2019-04-01"), 400d));
+        list.add(new Customer("jim@gmail.com", "Hunter1", parse("2019-01-01"), 100d, CustType.SILVER));
+        list.add(new Customer("pam@gmail.com", "Hunter2", parse("2019-02-01"), 200d, CustType.GOLD));
+        list.add(new Customer("micheal@gmail.com", "Hunter3", parse("2019-03-01"), 300d, CustType.PLATINUM));
+        list.add(new Customer("angela@gmail.com", "Hunter4", parse("2019-04-01"), 400d, CustType.SILVER));
         return list;
 
     }
@@ -25,6 +26,8 @@ public class TestUtils {
         System.out.println("2. Link Address to Customer");
         System.out.println("3. Customer Login");
         System.out.println("4. Unsubscribe Customer");
+        System.out.println("5. Display all customers by type");
+        System.out.println("6. Update Address");
         System.out.println("10. Exit");
     }
 }

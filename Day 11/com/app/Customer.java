@@ -23,12 +23,14 @@ public class Customer {
     Double regAmount;
     LocalDate regDate;
     Address homeAddress, officeAddress;
+    CustType type;
 
-    public Customer(String email, String password, LocalDate regDate, Double regAmount) {
+    public Customer(String email, String password, LocalDate regDate, Double regAmount, CustType type) {
         this.email = email;
         this.password = password;
         this.regDate = regDate;
         this.regAmount = regAmount;
+        this.type = type;
     }
 
     public Customer(String email2, String password2) {
@@ -75,6 +77,21 @@ public class Customer {
         } else if (!password.equals(other.password))
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer [email=" + email + ", homeAddress=" + homeAddress + ", officeAddress=" + officeAddress
+                + ", password=" + password + ", regAmount=" + regAmount + ", regDate=" + regDate + ", type=" + type
+                + "]";
+    }
+
+    public CustType getType() {
+        return type;
+    }
+
+    public void setType(CustType type) {
+        this.type = type;
     }
 
 }
