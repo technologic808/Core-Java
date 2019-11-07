@@ -1,5 +1,6 @@
 package com.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.app.CustType;
@@ -31,5 +32,18 @@ public class TestUtils {
         System.out.println("7. Sort Customers by Email: "); // Natural Ordering
         System.out.println("8. Sort Customers by Reg Date: "); // Custom Ordering
         System.out.println("10. Exit");
+    }
+
+    public static void unsubscribe(String email, String password, ArrayList<Customer> customerList) throws Exception {
+        for (Customer c : customerList) {
+            if (c.getEmail().equals(email) && c.getPassword().equals(password)) {
+                if (!customerList.remove(c))
+                    throw new Exception("Error: Unsubscription has failed!");
+            }
+        }
+    }
+
+    public static void sortByEmail(ArrayList<Customer> customerList) {
+
     }
 }

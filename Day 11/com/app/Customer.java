@@ -14,10 +14,7 @@ package com.app;
 
 import java.time.LocalDate;
 
-/**
- * Customer
- */
-public class Customer {
+public class Customer implements Comparable<Customer> {
 
     String email, password;
     Double regAmount;
@@ -40,43 +37,12 @@ public class Customer {
 
     public void linkAddress(String city, String state, String country, String phoneNo, String type) throws Exception {
 
-        if (type == "Home")
+        if (type.equals("Home"))
             homeAddress = new Address(city, state, country, phoneNo, type);
-        else if (type == "Office")
+        else if (type.equals("Office"))
             officeAddress = new Address(city, state, country, phoneNo, type);
         else
             throw new Exception("Error: Not a valid type of address");
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((email == null) ? 0 : email.hashCode());
-        result = prime * result + ((password == null) ? 0 : password.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Customer other = (Customer) obj;
-        if (email == null) {
-            if (other.email != null)
-                return false;
-        } else if (!email.equals(other.email))
-            return false;
-        if (password == null) {
-            if (other.password != null)
-                return false;
-        } else if (!password.equals(other.password))
-            return false;
-        return true;
     }
 
     @Override
@@ -108,6 +74,44 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((email == null) ? 0 : email.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Customer other = (Customer) obj;
+        if (email == null) {
+            if (other.email != null)
+                return false;
+        } else if (!email.equals(other.email))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int compareTo(Customer o) {
+        return this.email.compareTo(o.getEmail());
+    }
+
+    public LocalDate getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(LocalDate regDate) {
+        this.regDate = regDate;
     }
 
 }

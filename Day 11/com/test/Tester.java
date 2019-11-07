@@ -2,11 +2,14 @@ package com.test;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import com.app.CustType;
 import com.app.Customer;
 import static com.utils.TestUtils.*;
+import static com.utils.validationUtils.*;
 import static java.time.LocalDate.*;
 
 /**
@@ -20,7 +23,7 @@ public class Tester {
 
         Boolean loop = true;
         Integer option = 0;
-        String email, password;
+        String email, password, city, state, country, phoneNo, addType;
         LocalDate regDate;
         Double regAmount;
         String custType;
@@ -36,7 +39,7 @@ public class Tester {
                     email = sc.next();
                     System.out.println("Enter password: ");
                     password = sc.next();
-                    System.out.println("Enter registration date: ");
+                    System.out.println("Enter registration date (YYYY-MM-DD): ");
                     regDate = parse(sc.next());
                     System.out.println("Enter amount: ");
                     regAmount = sc.nextDouble();
@@ -48,21 +51,28 @@ public class Tester {
 
                 case 2:
                     // Link Address to Customer
+
+                    System.out.println("Enter City: ");
+                    city = sc.next();
+                    System.out.println("Enter State: ");
+                    state = sc.next();
+                    System.out.println("Enter Country: ");
+                    country = sc.next();
+                    System.out.println("Enter Phone: ");
+                    phoneNo = sc.next();
+                    System.out.println("Enter Address type (Home/Office): ");
+                    addType = sc.next();
+
+                    loginValidation(customerList).linkAddress(city, state, country, phoneNo, addType);
+
                     break;
                 case 3:
                     // Customer Login
-
-                    // Accepts email and password from user
-                    System.out.println("Enter email: ");
-                    email = sc.next();
-                    System.out.println("Enter password: ");
-                    password = sc.next();
-
                     // Checks if email and password match database
-                    if (customerList.contains(new Customer(email, password)))
-                        System.out.println("Congratulations! You are logged in!");
-                    else
-                        System.out.println("Error: Invalid email/password");
+                    loginValidation(customerList);
+
+                    // Success message
+                    System.out.println("You are successfully logged in!");
 
                     break;
                 case 4:
@@ -71,6 +81,11 @@ public class Tester {
                     email = sc.next();
                     System.out.println("Enter password: ");
                     password = sc.next();
+
+                    unsubscribe(email, password, customerList);
+
+                    // Success
+                    System.out.println("Customer has been unsubscribed!");
 
                     break;
                 case 5:
@@ -83,17 +98,26 @@ public class Tester {
                     }
                 case 6:
                     // Update Address
+                    // Same as Linking new address?
+                    // Just use option to link new address
 
                     break;
 
                 case 7:
                     // Sort Customers by Email using Natural Ordering
-
+                    Collections.sort(customerList);
                     break;
 
                 case 8:
                     // Sort Customers by Reg Date using Custom Ordering
+                    customerList.sort(new Comparator<Customer>() {
 
+                        @Override
+                        public int compare(Customer c1, Customer c2) {
+                            return c1.getRegDate().compareTo(c2.getRegDate());
+                        }
+
+                    });
                     break;
 
                 case 10:
