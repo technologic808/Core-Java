@@ -1,11 +1,13 @@
 package com.utils;
 
+import static java.time.LocalDate.parse;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.app.CustType;
 import com.app.Customer;
-import static java.time.LocalDate.*;
 
 /**
  * TestUtils
@@ -35,11 +37,12 @@ public class TestUtils {
     }
 
     public static void unsubscribe(String email, String password, ArrayList<Customer> customerList) throws Exception {
-        for (Customer c : customerList) {
-            if (c.getEmail().equals(email) && c.getPassword().equals(password)) {
-                if (!customerList.remove(c))
-                    throw new Exception("Error: Unsubscription has failed!");
-            }
+        //
+        Customer tempCustomer;
+        for (Iterator<Customer> c = customerList.iterator(); c.hasNext();) {
+            tempCustomer = c.next();
+            if (tempCustomer.getEmail().equals(email) && tempCustomer.getPassword().equals(password))
+                c.remove();
         }
     }
 

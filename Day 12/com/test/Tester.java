@@ -1,5 +1,13 @@
 package com.test;
 
+import static com.utils.IOUtils.restore;
+import static com.utils.IOUtils.save;
+import static com.utils.TestUtils.menu;
+import static com.utils.TestUtils.unsubscribe;
+import static com.utils.validationUtils.loginValidation;
+import static java.time.LocalDate.parse;
+
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,9 +16,6 @@ import java.util.Scanner;
 
 import com.app.CustType;
 import com.app.Customer;
-import static com.utils.TestUtils.*;
-import static com.utils.validationUtils.*;
-import static java.time.LocalDate.*;
 
 /**
  * Tester
@@ -18,17 +23,23 @@ import static java.time.LocalDate.*;
 public class Tester {
 
     public static void main(String[] args) {
-        ArrayList<Customer> customerList = new ArrayList<>();
-        populateList(customerList);
-
-        Boolean loop = true;
-        Integer option = 0;
-        String email, password, city, state, country, phoneNo, addType;
-        LocalDate regDate;
-        Double regAmount;
-        String custType;
-
         try (Scanner sc = new Scanner(System.in)) {
+            ArrayList<Customer> customerList;
+            try {
+                customerList = (ArrayList<Customer>) restore();
+            } catch (FileNotFoundException e) {
+                customerList = new ArrayList<Customer>();
+            }
+
+            // populateList(customerList);
+
+            Boolean loop = true;
+            Integer option = 0;
+            String email, password, city, state, country, phoneNo, addType;
+            LocalDate regDate;
+            Double regAmount;
+            String custType;
+
             while (loop) {
                 menu(); // Displays menu in console
                 option = sc.nextInt();
@@ -127,6 +138,7 @@ public class Tester {
                 case 10:
                     System.out.println("Thanks for using this application!");
                     loop = false;
+                    save(customerList);
                     break;
 
                 default:

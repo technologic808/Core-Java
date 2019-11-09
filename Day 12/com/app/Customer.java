@@ -12,11 +12,16 @@
 
 package com.app;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashMap;
 
-public class Customer implements Comparable<Customer> {
+public class Customer implements Comparable<Customer>, Serializable {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     String email, password;
     Double regAmount;
     LocalDate regDate;
@@ -46,17 +51,6 @@ public class Customer implements Comparable<Customer> {
         addresses.get(type).setState(state);
         addresses.get(type).setPhoneNo(phoneNo);
         addresses.get(type).setType(type);
-
-        // if (type.equals("Home")) {
-        // this.addresses.put("Home", new Address(city, state, country, phoneNo, type));
-        // return true;
-        // } else if (type.equals("Office")) {
-        // this.addresses.put("Office", new Address(city, state, country, phoneNo,
-        // type));
-        // return true;
-        // } else
-        // throw new Exception("Error: Not a valid type of address");
-
     }
 
     @Override

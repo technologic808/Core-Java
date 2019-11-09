@@ -1,5 +1,7 @@
 package com.app;
 
+import java.io.Serializable;
+
 // (Customer HAS-A Address)
 // How will you add multiple addresses?
 // Address -- city,state,country,phoneNo,type
@@ -7,7 +9,11 @@ package com.app;
 /**
  * Address
  */
-public class Address {
+public class Address implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     String city, state, country, phoneNo, type;
 
     public Address(String city, String state, String country, String phoneNo, String type) {
