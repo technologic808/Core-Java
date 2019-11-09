@@ -1,0 +1,5 @@
+Day 12
+Continue with day11 assignment & add persistence , using Object streams.
+(When application starts , restore customer info from bin file. Before terminating , store customer info into a bin file)
+
+Create separate class IOUtils , to add static methods for the same.
