@@ -35,13 +35,16 @@ public class Customer implements Comparable<Customer> {
         password = password2;
     }
 
-    public void linkAddress(String city, String state, String country, String phoneNo, String type) throws Exception {
+    public boolean linkAddress(String city, String state, String country, String phoneNo, String type)
+            throws Exception {
 
-        if (type.equals("Home"))
+        if (type.equals("Home")) {
             homeAddress = new Address(city, state, country, phoneNo, type);
-        else if (type.equals("Office"))
+            return true;
+        } else if (type.equals("Office")) {
             officeAddress = new Address(city, state, country, phoneNo, type);
-        else
+            return true;
+        } else
             throw new Exception("Error: Not a valid type of address");
     }
 
