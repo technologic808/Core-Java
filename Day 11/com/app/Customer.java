@@ -13,16 +13,18 @@
 package com.app;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 
 public class Customer implements Comparable<Customer> {
 
     String email, password;
     Double regAmount;
     LocalDate regDate;
-    Address homeAddress, officeAddress;
+    HashMap<String, Address> addresses; // homeAddress, officeAddress
     CustType type;
 
     public Customer(String email, String password, LocalDate regDate, Double regAmount, CustType type) {
+        this.addresses = new HashMap<>();
         this.email = email;
         this.password = password;
         this.regDate = regDate;
@@ -35,24 +37,33 @@ public class Customer implements Comparable<Customer> {
         password = password2;
     }
 
-    public boolean linkAddress(String city, String state, String country, String phoneNo, String type)
-            throws Exception {
+    public void linkAddress(String city, String state, String country, String phoneNo, String type) throws Exception {
 
-        if (type.equals("Home")) {
-            homeAddress = new Address(city, state, country, phoneNo, type);
-            return true;
-        } else if (type.equals("Office")) {
-            officeAddress = new Address(city, state, country, phoneNo, type);
-            return true;
-        } else
-            throw new Exception("Error: Not a valid type of address");
+        this.addresses.put(type, new Address());
+
+        addresses.get(type).setCity(city);
+        addresses.get(type).setCountry(country);
+        addresses.get(type).setState(state);
+        addresses.get(type).setPhoneNo(phoneNo);
+        addresses.get(type).setType(type);
+
+        // if (type.equals("Home")) {
+        // this.addresses.put("Home", new Address(city, state, country, phoneNo, type));
+        // return true;
+        // } else if (type.equals("Office")) {
+        // this.addresses.put("Office", new Address(city, state, country, phoneNo,
+        // type));
+        // return true;
+        // } else
+        // throw new Exception("Error: Not a valid type of address");
+
     }
 
     @Override
     public String toString() {
-        return "Customer [email=" + email + ", homeAddress=" + homeAddress + ", officeAddress=" + officeAddress
-                + ", password=" + password + ", regAmount=" + regAmount + ", regDate=" + regDate + ", type=" + type
-                + "]";
+        return "Customer [email=" + email + ", homeAddress=" + addresses.get("Home") + ", officeAddress="
+                + addresses.get("Office") + ", password=" + password + ", regAmount=" + regAmount + ", regDate="
+                + regDate + ", type=" + type + "]";
     }
 
     public CustType getType() {

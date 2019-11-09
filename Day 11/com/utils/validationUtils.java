@@ -10,9 +10,9 @@ import com.app.Customer;
  */
 public class validationUtils {
 
-    public static Customer loginValidation(ArrayList<Customer> list) throws Exception {
+    public static Customer loginValidation(ArrayList<Customer> list, Scanner sc) throws Exception {
         // Accepts email and password from user
-        try (Scanner sc = new Scanner(System.in)) {
+        try {
             System.out.println("Enter email: ");
             String email = sc.next();
             System.out.println("Enter password: ");
@@ -22,6 +22,7 @@ public class validationUtils {
                     return c;
             }
             throw new Exception("Error: Invalid username/password");
+        } finally {
         }
     }
 }

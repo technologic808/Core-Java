@@ -52,6 +52,10 @@ public class Tester {
                 case 2:
                     // Link Address to Customer
 
+                    Customer temp = loginValidation(customerList, sc);
+
+                    System.out.println("Returned customer after validation is " + temp);
+
                     System.out.println("Enter City: ");
                     city = sc.next();
                     System.out.println("Enter State: ");
@@ -63,13 +67,13 @@ public class Tester {
                     System.out.println("Enter Address type (Home/Office): ");
                     addType = sc.next();
 
-                    loginValidation(customerList).linkAddress(city, state, country, phoneNo, addType);
+                    temp.linkAddress(city, state, country, phoneNo, addType);
 
                     break;
                 case 3:
                     // Customer Login
                     // Checks if email and password match database
-                    loginValidation(customerList);
+                    loginValidation(customerList, sc);
 
                     // Success message
                     System.out.println("You are successfully logged in!");
