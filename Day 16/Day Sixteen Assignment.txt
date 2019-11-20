@@ -1,0 +1,11 @@
+Day 16
+1. Create peer to peer chat client n server.
+(asynchronous --non blocking)
+Suggestion : Display received messages on text console(System.out) , for sending message, can use pop-up dialog box
+API help : javax.swing.JOptionPane class
+method
+public static String showInputDialog(Object message)
+eg : String mesg=JOptionPane.showInputDialog("Enter mesg to send");
+OR
+
+Customer management Service , for CRUD operations.

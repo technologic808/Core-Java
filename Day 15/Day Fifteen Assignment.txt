@@ -1,0 +1,8 @@
+Day 15
+1. Fix the problem in day15.2\src\thrd_unsafe_coll\ThreadUnsafeCollections.java
+(problem -- concurrent modification exc)
+Replace it by Vector --observe n conclude, Replace it by Collections.synchronizedList  --observe n conclude
+
+What will be the actual solution ? Apply & test .
+
+2. Complete Day14's 2nd assignment , using synchronized block technique.

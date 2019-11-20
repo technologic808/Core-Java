@@ -1,0 +1,23 @@
+Day 13
+MANDATORY
+1. Create multi threaded application , to print even & odd numbers from a range, specified by user.
+(3 threads 1. main --UI that will accept start n end numbers from user, 2. EvenPrinter 3. OddPrinter)
+Ensure no orphans. First try it with "extends Thread" & later with "implements Runnable" .
+
+OPTIONAL (Involves threads + I/O + Collections)
+2. Create a suitable data structure to store department wise employee details.
+Populate it with 3 depts having 4 emps each(hard coded)
+Create multi threaded application , to store emp data in a separate text file for separate department, sorted as per salary.
+
+
+
+
+
+
+
+
+
+
+
+
+

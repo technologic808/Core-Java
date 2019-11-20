@@ -1,0 +1,14 @@
+Day 14
+
+1. Solve 2nd assignment of day 13( collection + i/o + thrds) --Mandatory
+
+2. Create java application for the following.
+In main thread --get populated (hard coded) list of Emps (eg : ArrayList<Emp> )
+Emp -- id(int),name(string),salary(double),hireDate(LocalDate)
+
+Pass the SAME emp list to 3 threads (sharing of common resource) 
+t1 -- sorts the list as per emp name & stores in in txt file (t1.txt)
+t2 -- sorts the list as per emp salary & stores in in txt file (t2.txt)
+t3 -- sorts the list as per emp hire date & stores in in txt file (t3.txt)
+
+Observe the problem first & then fix it!
