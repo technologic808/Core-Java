@@ -56,14 +56,29 @@ public class Tester {
                     regAmount = sc.nextDouble();
                     System.out.println("Enter customer type(SILVER/GOLD/PLATINUM): ");
                     custType = sc.next();
+                    try {
+                        customerList.add(new Customer(email, password, regDate, regAmount, CustType.valueOf(custType)));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
-                    customerList.add(new Customer(email, password, regDate, regAmount, CustType.valueOf(custType)));
                     break;
+
+                case 6:
+                    // Update Address
+                    // Same as Linking new address?
+                    // Just use option to link new address
 
                 case 2:
                     // Link Address to Customer
 
-                    Customer temp = loginValidation(customerList, sc);
+                    Customer temp = null;
+
+                    try {
+                        temp = loginValidation(customerList, sc);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     System.out.println("Returned customer after validation is " + temp);
 
@@ -78,13 +93,21 @@ public class Tester {
                     System.out.println("Enter Address type (Home/Office): ");
                     addType = sc.next();
 
-                    temp.linkAddress(city, state, country, phoneNo, addType);
+                    try {
+                        temp.linkAddress(city, state, country, phoneNo, addType);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     break;
                 case 3:
                     // Customer Login
                     // Checks if email and password match database
-                    loginValidation(customerList, sc);
+                    try {
+                        loginValidation(customerList, sc);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     // Success message
                     System.out.println("You are successfully logged in!");
@@ -97,7 +120,11 @@ public class Tester {
                     System.out.println("Enter password: ");
                     password = sc.next();
 
-                    unsubscribe(email, password, customerList);
+                    try {
+                        unsubscribe(email, password, customerList);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     // Success
                     System.out.println("Customer has been unsubscribed!");
@@ -111,12 +138,6 @@ public class Tester {
                         if (c.getType().toString().equals(custType))
                             System.out.println(c);
                     }
-                case 6:
-                    // Update Address
-                    // Same as Linking new address?
-                    // Just use option to link new address
-
-                    break;
 
                 case 7:
                     // Sort Customers by Email using Natural Ordering
@@ -138,7 +159,11 @@ public class Tester {
                 case 10:
                     System.out.println("Thanks for using this application!");
                     loop = false;
-                    save(customerList);
+                    try {
+                        save(customerList);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     break;
 
                 default:
