@@ -8,16 +8,3 @@ OPTIONAL (Involves threads + I/O + Collections)
 2. Create a suitable data structure to store department wise employee details.
 Populate it with 3 depts having 4 emps each(hard coded)
 Create multi threaded application , to store emp data in a separate text file for separate department, sorted as per salary.
-
-
-
-
-
-
-
-
-
-
-
-
-
